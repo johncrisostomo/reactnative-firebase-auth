@@ -2,3 +2,4 @@ node_modules/**/*
 .expo/*
 npm-debug.*
 function_endpoints.json
+firebase_config.json
