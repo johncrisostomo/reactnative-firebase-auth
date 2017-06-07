@@ -9,36 +9,39 @@ class SignInForm extends Component {
 
   handleSubmit = async () => {
     try {
-      await axios.post(verifyOTP, {
+      let response = await axios.post(verifyOTP, {
         phone: this.state.phone,
         code: this.state.code
       });
+      console.log(response);
     } catch (err) {
       console.log(err);
     }
   }
 
   render() {
-    <View>
+    return (
       <View>
-        <View style={{ marginBotton: 10 }}>
-          <FormLabel>Enter Phone Number</FormLabel>
-          <FormInput
-            value={this.state.phone}
-            onChangeText={phone => this.setState({ phone })}
-          />
-        </View>
+        <View>
+          <View style={{ marginBotton: 10 }}>
+            <FormLabel>Enter Phone Number</FormLabel>
+            <FormInput
+              value={this.state.phone}
+              onChangeText={phone => this.setState({ phone })}
+            />
+          </View>
 
-        <View style={{ marginBotton: 10 }}>
-          <FormLabel>Enter Code</FormLabel>
-          <FormInput
-            value={this.state.code}
-            onChangeText={code => this.setState({ code })}
-          />
+          <View style={{ marginBotton: 10 }}>
+            <FormLabel>Enter Code</FormLabel>
+            <FormInput
+              value={this.state.code}
+              onChangeText={code => this.setState({ code })}
+            />
+          </View>
+          <Button title="Submit" onPress={this.handleSubmit} />
         </View>
-        <Button title="Submit" />
       </View>
-    </View>
+    );
   }
 }
 
