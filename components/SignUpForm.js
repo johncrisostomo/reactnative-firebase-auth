@@ -10,7 +10,7 @@ class SignUpForm extends Component {
   handleSubmit = async () => {
     try {
       await axios.post(createAccount, { phone: this.state.phone });
-      await axios.post(requestOTP, { phone: this.state.phone})
+      await axios.post(requestOTP, { phone: this.state.phone })
     } catch (err) {
       console.log(err);
     }
